@@ -9,6 +9,8 @@
 @end
 
 @implementation ViewController
+
+// 遮盖的View
 - (UIView *)coverView
 {
     if (_coverView == nil) {
@@ -50,7 +52,10 @@
         
         CGContextRef ctx = UIGraphicsGetCurrentContext();
         
+        // 渲染图片到图形上下文
         [self.imageV.layer renderInContext:ctx];
+        
+        // 从图形上下文获取新的图片
         UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
         
         // 关闭图形上下文
